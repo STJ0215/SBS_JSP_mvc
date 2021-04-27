@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/getFormImage")
 public class GetImageController extends HttpServlet { 
 	@Override
@@ -26,14 +25,14 @@ public class GetImageController extends HttpServlet {
 		try {
 			File imgFile = new File(target);
 			
-			if(imgFile.exists()) {
+			if (imgFile.exists()) {
 				FileInputStream ifo = new FileInputStream(imgFile);
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				byte[] buf = new byte[1024];
 				int readlength = 0;
 				String testStr = "";
 				
-				while((readlength = ifo.read(buf)) != -1) {
+				while ((readlength = ifo.read(buf)) != -1) {
 					baos.write(buf,0,readlength);
 					testStr += buf;
 				}
@@ -51,7 +50,7 @@ public class GetImageController extends HttpServlet {
 				out.close();
 			} 
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

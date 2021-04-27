@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.sbs.edu.mvc.service.MemberService;
 import com.sbs.edu.mvc.vo.MemberVO;
 
-
 public class MemberSearchController implements Controller {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -18,17 +17,17 @@ public class MemberSearchController implements Controller {
 		String path = null;
 		
 		// 유효성 체크
-		if(job.equals("search")) {
+		if (job.equals("search")) {
 			path = "/memberSearch.jsp";	
 		}
-		else if(job.equals("update")) {
+		else if (job.equals("update")) {
 			path = "/memberUpdate.jsp";
 		}
-		else if(job.equals("delete")) {
+		else if (job.equals("delete")) {
 			path = "/memberDelete.jsp";
 		}
 		
-		if(id.isEmpty()) {
+		if (id.isEmpty()) {
 			req.setAttribute("error", "ID를 입력해주세요!");
 			HttpUtil.forward(req, res, path);
 			
@@ -40,13 +39,13 @@ public class MemberSearchController implements Controller {
 		MemberVO member = service.memberSearch(id);
 		
 		// Output View 페이지로 이동.
-		if(member == null) {
+		if (member == null) {
 			req.setAttribute("result", "검색된 정보가 없습니다.");
 		}
 		
 		req.setAttribute("member", member);
 		
-		if(job.equals("search")) {
+		if (job.equals("search")) {
 			path = "/result/memberSearchOutput.jsp";
 		}
 		

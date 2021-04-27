@@ -10,5 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 public class MemberDeleteController implements Controller {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 	}
 }

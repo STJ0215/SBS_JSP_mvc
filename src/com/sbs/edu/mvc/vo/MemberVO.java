@@ -1,6 +1,5 @@
 package com.sbs.edu.mvc.vo;
 
-
 public class MemberVO {
 	private int id;
 	private String userid;

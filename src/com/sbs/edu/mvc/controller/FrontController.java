@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String charset = null;
-	HashMap<String, Controller> list =null;
+	HashMap<String, Controller> list = null;
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -29,7 +28,7 @@ public class FrontController extends HttpServlet {
 	
 	@Override
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {		
-		//http://localhost:8080/프로젝트명/memberInsert.do
+		// http://localhost:8080/프로젝트명/memberInsert.do
 		String url = req.getRequestURI(); 				   // /프로젝트명/memberInsert.do
 		String contextPath = req.getContextPath(); 		   // /프로젝트명
 		String path = url.substring(contextPath.length()); // 4

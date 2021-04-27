@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 import com.sbs.edu.mvc.vo.MemberVO;
 
-
 public class MemberDAO {
+	// 싱글톤 패턴
 	private static MemberDAO dao = new MemberDAO();
 	private MemberDAO() {}
 	
@@ -22,13 +22,13 @@ public class MemberDAO {
 		Connection conn = null;
 		
 		try { 		    
-		    String dbURL="jdbc:mysql://localhost:3306/board?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8";                             
-		    String dbID="root";
-		    String dbPassword="1234";
+		    String dbURL = "jdbc:mysql://localhost:3306/board?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8";                             
+		    String dbID = "root";
+		    String dbPassword = "1234";
 		    Class.forName("com.mysql.cj.jdbc.Driver");				 
-			conn=DriverManager.getConnection(dbURL,dbID,dbPassword); 
+			conn = DriverManager.getConnection(dbURL,dbID,dbPassword); 
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			System.out.println("jdbc err : " + e.getMessage());
 		}
 		
@@ -36,7 +36,7 @@ public class MemberDAO {
 	}
 	
 	public void close(Connection conn, PreparedStatement ps, ResultSet rs) {
-		if(rs != null) {
+		if (rs != null) {
 			try {
 				rs.close();
 			}
@@ -47,19 +47,19 @@ public class MemberDAO {
 	}
 	
 	public void close(Connection conn, PreparedStatement ps) {
-		if(ps != null) {
+		if (ps != null) {
 			try {
 				ps.close();
 			}
-			catch(Exception e) {
+			catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		}
-		if(conn != null) {
+		if (conn != null) {
 			try {
 				conn.close();
 			}
-			catch(Exception e) {
+			catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		}
@@ -81,7 +81,7 @@ public class MemberDAO {
 			pstmt.setString(5, "");
 			pstmt.executeUpdate();
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		finally {
@@ -103,7 +103,7 @@ public class MemberDAO {
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			if (rs.next()) {
 				member = new MemberVO();
 				member.setUserid(rs.getString(2));
 				member.setUserpw(rs.getString(3));
@@ -111,7 +111,7 @@ public class MemberDAO {
 				member.setName(rs.getString(5));
 			}
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		finally {
@@ -135,7 +135,7 @@ public class MemberDAO {
 			pstmt.setString(4, member.getUserid());
 			pstmt.execute();
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		finally {
@@ -155,7 +155,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement("SELECT * FROM MEMBER");
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
+			while (rs.next()) {
 				member = new MemberVO();
 				member.setUserid(rs.getString(1));
 				member.setUserpw(rs.getString(2));

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.sbs.edu.mvc.dao.MemberDAO;
 import com.sbs.edu.mvc.vo.MemberVO;
 
-
 public class MemberService {
 	private static MemberService service = new MemberService();
 	public MemberDAO dao = MemberDAO.getInstance();

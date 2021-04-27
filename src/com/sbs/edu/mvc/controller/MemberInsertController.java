@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.sbs.edu.mvc.service.MemberService;
 import com.sbs.edu.mvc.vo.MemberVO;
 
-
 public class MemberInsertController implements Controller {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// 파라미터 추출.
+		// 파라미터 추출
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		String name = req.getParameter("name");
@@ -25,7 +24,7 @@ public class MemberInsertController implements Controller {
 		System.out.println("mail : " + mail);
 		
 		// 유효성 체크
-		if(id.isEmpty() || pw.isEmpty() || name.isEmpty() || mail.isEmpty()) {
+		if (id.isEmpty() || pw.isEmpty() || name.isEmpty() || mail.isEmpty()) {
 			req.setAttribute("error", "모든 항목을 빠짐없이 입력해주세요.");
 			HttpUtil.forward(req, res, "/memberInsert.jsp");
 			

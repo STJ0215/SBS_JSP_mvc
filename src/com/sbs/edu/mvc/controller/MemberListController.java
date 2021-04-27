@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.sbs.edu.mvc.service.MemberService;
 import com.sbs.edu.mvc.vo.MemberVO;
 
-
 public class MemberListController implements Controller {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
